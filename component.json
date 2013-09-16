@@ -1,0 +1,10 @@
+{
+  "name": "rework-svg",
+  "version": "1.0.0",
+  "repo": "jankuca/rework-svg",
+  "description": "SVG inliner with styling support",
+  "main": "src/svg.js",
+  "keywords": ["image", "svg", "css", "rework", "inline", "style"],
+  "scripts": ["src/svg.js"],
+  "license": "MIT"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "rework-svg",
+  "version": "1.0.0",
+
+  "author": "Jan Kuča (http://jankuca.com)",
+
+  "main": "./src/svg.js",
+
+  "dependencies": {
+    "underscore": "*",
+    "xmldoc": "git://github.com/jankuca/xmldoc.git"
+  }
+}
