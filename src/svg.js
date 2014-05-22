@@ -108,6 +108,8 @@ module.exports = function (base_path) {
             declaration.value = declaration.value.replace(SVG_PATTERN,
                 function (match, pre_whitespace, url_match, svg_style_json) {
               var url = url_match.replace(/^["']|["']$/g, '');
+              svg_style_json = svg_style_json || "{}";
+
               var svg_style = rework(svg_style_json).obj.stylesheet;
               var filename = base_path ? path.join(base_path, url) : url;
 
