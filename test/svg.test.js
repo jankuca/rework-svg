@@ -42,4 +42,18 @@ describe('SVG_PATTERN', function () {
     });
   });
 
+  it('should match two rules with new line between', function (done) {
+    var value = 'url("./img/icon.svg") svg({' +
+      'path#p1 { fill: #00FF00; }' + '\n' +
+      'path[id="p2"] { fill: #FF0000; }' +
+    '})';
+
+    value.replace(svg.SVG_PATTERN, function (match, pre_whitespace, url_match, svg_style_json) {
+      expect(pre_whitespace).to.equal('');
+      expect(url_match).to.equal('"./img/icon.svg"');
+      expect(svg_style_json).to.equal('path#p1 { fill: #00FF00; }' + '\n' + 'path[id="p2"] { fill: #FF0000; }');
+      done();
+    });
+  });
+
 });
