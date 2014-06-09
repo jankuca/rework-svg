@@ -5,7 +5,7 @@ var rework = require('rework');
 var xmldoc = require('xmldoc');
 
 
-var SVG_PATTERN = new RegExp(
+var SVG_PATTERN = exports.SVG_PATTERN = new RegExp(
   '(^|\\s)' +
   // url(...)
   '(?:url\\((.*?)\\))' + '\\s+' +
@@ -16,7 +16,7 @@ var SVG_PATTERN = new RegExp(
   '\\))'
 );
 
-var SELECTOR_PATTERN = new RegExp(
+var SELECTOR_PATTERN = exports.SELECTOR_PATTERN = new RegExp(
   '^' +
   // tag name
   '([\\w:-]+)' +
@@ -33,7 +33,7 @@ var SELECTOR_PATTERN = new RegExp(
 );
 
 
-var getStyledSvgAsDataURL = function (filename, style) {
+var getStyledSvgAsDataURL = exports.getStyledSvgAsDataURL = function (filename, style) {
   var xml_source = fs.readFileSync(filename, 'utf8');
   var doc = new xmldoc.XmlDocument(xml_source);
 
@@ -56,7 +56,7 @@ var getStyledSvgAsDataURL = function (filename, style) {
 };
 
 
-var querySelectorAll = function (root, selector) {
+var querySelectorAll = exports.querySelectorAll = function (root, selector) {
   var selector_path = selector.split(/\s+/);
   var elements = [ root ];
 
@@ -99,7 +99,7 @@ var querySelectorAll = function (root, selector) {
 };
 
 
-module.exports = function (base_path) {
+exports.createProcessor = function (base_path) {
   return function (style) {
     style.rules.forEach(function (rule) {
       if (rule.declarations) {

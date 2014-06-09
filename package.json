@@ -4,10 +4,16 @@
 
   "author": "Jan Kuča (http://jankuca.com)",
 
-  "main": "./src/svg.js",
+  "main": "./index.js",
 
   "dependencies": {
     "underscore": "*",
     "xmldoc": "git://github.com/jankuca/xmldoc.git"
+  },
+
+  "devDependencies": {
+    "rework": "*",
+    "mocha": "*",
+    "expect.js": "*"
   }
 }
